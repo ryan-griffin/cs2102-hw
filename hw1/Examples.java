@@ -36,8 +36,32 @@ public class Examples {
 
 	@Test
 	public void testBestowHonor() {
-		pr = new PetRescue(new LinkedList<Integer>(), new LinkedList<Integer>(), "", new LinkedList<Coord>());
+		pr = new PetRescue(someBirdWeights, new LinkedList<Integer>(), "", new LinkedList<Coord>());
 		pr.bestowHonor("Dr.", "PhD");
-		assertEquals("Name should be 'Dr. , PhD'", "Dr. , PhD", pr.petOfTheMonth);
+		assertEquals("Dr. , PhD", pr.petOfTheMonth);
+	}
+
+	@Test
+	public void testFeedChinchillasZero() {
+		pr = new PetRescue(someBirdWeights, new LinkedList<Integer>(), "", new LinkedList<Coord>());
+		assertEquals("Chinchilla: 0 pellets, 0 hay", pr.feedChinchillas(0, 0));
+	}
+
+	@Test
+	public void testFeedChinchillasPositive() {
+		pr = new PetRescue(someBirdWeights, new LinkedList<Integer>(), "", new LinkedList<Coord>());
+		assertEquals("Chinchilla: 5 pellets, 10 hay", pr.feedChinchillas(5, 10));
+	}
+
+	@Test
+	public void testFeedChinchillasNegative() {
+		pr = new PetRescue(someBirdWeights, new LinkedList<Integer>(), "", new LinkedList<Coord>());
+		assertEquals("Chinchilla: unknown pellets, unknown hay", pr.feedChinchillas(-5, -10));
+	}
+
+	@Test
+	public void testClosestToEmpty() {
+		pr = new PetRescue(someBirdWeights, new LinkedList<Integer>(), "", new LinkedList<Coord>());
+		assertEquals("Conspiciously Catless", pr.closestTo(0, 0));
 	}
 }
