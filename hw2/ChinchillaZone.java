@@ -1,58 +1,22 @@
 import java.util.LinkedList;
 
-public class ChinchillaZone implements Zoneable {
+public class ChinchillaZone extends Zone {
+	public LinkedList<Chinchilla> chinchillas;
 
 	public ChinchillaZone(LinkedList<Chinchilla> chinchillas) {
-		// TODO Auto-generated constructor stub
-		throw new UnsupportedOperationException("Unimplemented constructor 'ChinchillaZone'");
+		this.chinchillas = chinchillas;
 	}
 
-	@Override
-	public int petsInZone() {
-		// TODO Auto-generated method stub
-		throw new UnsupportedOperationException("Unimplemented method 'petsInZone'");
+	public LinkedList<? extends Petable> getPets() {
+		return chinchillas;
 	}
 
-	@Override
-	public Petable heaviestPet() {
-		// TODO Auto-generated method stub
-		throw new UnsupportedOperationException("Unimplemented method 'heaviestPet'");
-	}
-
-	@Override
 	public int inHumanYears(String petName) {
-		// TODO Auto-generated method stub
-		throw new UnsupportedOperationException("Unimplemented method 'inHumanYears'");
+		for (Chinchilla chinchilla : chinchillas) {
+			if (chinchilla.getName() == petName) {
+				return chinchilla.getAge() * 10;
+			}
+		}
+		return -1;
 	}
-
-	@Override
-	public Zoneable restockPetFood(String foodName, int foodAmt) {
-		// TODO Auto-generated method stub
-		throw new UnsupportedOperationException("Unimplemented method 'restockPetFood'");
-	}
-
-	@Override
-	public Zoneable feedZone() {
-		// TODO Auto-generated method stub
-		throw new UnsupportedOperationException("Unimplemented method 'feedZone'");
-	}
-
-	@Override
-	public Petable getPet(String petName) {
-		// TODO Auto-generated method stub
-		throw new UnsupportedOperationException("Unimplemented method 'getPet'");
-	}
-
-	@Override
-	public String getPantryLabel() {
-		// TODO Auto-generated method stub
-		throw new UnsupportedOperationException("Unimplemented method 'getPantryLabel'");
-	}
-
-	@Override
-	public String closestPet(int x, int y) {
-		// TODO Auto-generated method stub
-		throw new UnsupportedOperationException("Unimplemented method 'closestPet'");
-	}
-
 }
