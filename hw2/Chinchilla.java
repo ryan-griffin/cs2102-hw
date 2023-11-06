@@ -1,32 +1,23 @@
-public class Chinchilla implements Petable {
+public class Chinchilla extends Animal {
+	public int dustBathResidueInOz;
 
 	public Chinchilla(String name, int age, int weightInOz, Coord2D location, int dustBathResidueInOz) {
-		// TODO Auto-generated constructor stub
-		throw new UnsupportedOperationException("Unimplemented constructor 'Chinchilla'");
+		super(name, age, weightInOz, location);
+		this.dustBathResidueInOz = dustBathResidueInOz;
 	}
 
-	@Override
-	public String getName() {
-		// TODO Auto-generated method stub
-		throw new UnsupportedOperationException("Unimplemented method 'getName'");
-	}
-
-	@Override
 	public int getWeightInOz() {
-		// TODO Auto-generated method stub
-		throw new UnsupportedOperationException("Unimplemented method 'getWeightInOz'");
+		return weightInOz + dustBathResidueInOz;
 	}
 
-	@Override
-	public int getAge() {
-		// TODO Auto-generated method stub
-		throw new UnsupportedOperationException("Unimplemented method 'getAge'");
-	}
-
-	@Override
 	public int eats(String foodLabel) {
-		// TODO Auto-generated method stub
-		throw new UnsupportedOperationException("Unimplemented method 'eats'");
+		switch (foodLabel) {
+			case "pellets":
+				return 3;
+			case "hay":
+				return 1;
+			default:
+				return 0;
+		}
 	}
-
 }
