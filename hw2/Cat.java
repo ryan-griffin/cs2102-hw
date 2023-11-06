@@ -1,4 +1,4 @@
-public class Cat extends Animal {
+public class Cat extends Pet {
 	public boolean hasBeenPetToday;
 
 	public Cat(String name, int age, int weightInOz, Coord2D location, boolean hasBeenPetToday) {

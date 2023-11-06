@@ -1,4 +1,4 @@
-public class Chinchilla extends Animal {
+public class Chinchilla extends Pet {
 	public int dustBathResidueInOz;
 
 	public Chinchilla(String name, int age, int weightInOz, Coord2D location, int dustBathResidueInOz) {

@@ -1,4 +1,4 @@
-public class Bird extends Animal {
+public class Bird extends Pet {
 	public boolean wingsClipped;
 
 	public Bird(String name, int age, int weightInOz, Coord2D location, boolean wingsClipped) {
