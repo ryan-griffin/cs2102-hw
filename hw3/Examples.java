@@ -21,148 +21,147 @@ public class Examples {
 
     @Test
     public void testSTHRConstructorNoArg() {
-        SuperTempHumidReading sthrtest = new SuperTempHumidReading();
-        assertEquals(-999.0, sthrtest.temperature, 0d);
-        assertEquals(-999.0, sthrtest.humidity, 0d);
+        SuperTempHumidReading sthr = new SuperTempHumidReading();
+        assertEquals(-999.0, sthr.temperature, 0d);
+        assertEquals(-999.0, sthr.humidity, 0d);
     }
 
     @Test
     public void testSTHRConstructorTwoArg() {
-        SuperTempHumidReading sthrtest = new SuperTempHumidReading(40.4, 12.3);
-        assertEquals(40.4, sthrtest.temperature, 0d);
-        assertEquals(12.3, sthrtest.humidity, 0d);
+        SuperTempHumidReading sthr = new SuperTempHumidReading(40.4, 12.3);
+        assertEquals(40.4, sthr.temperature, 0d);
+        assertEquals(12.3, sthr.humidity, 0d);
     }
 
     @Test
     public void testTHRConstructorTwoArg() {
-        TempHumidReading thrtest = new TempHumidReading(42.4, 16.3);
-        assertEquals(42.4, thrtest.temperature, 0d);
-        assertEquals(16.3, thrtest.humidity, 0d);
+        TempHumidReading thr = new TempHumidReading(42.4, 16.3);
+        assertEquals(42.4, thr.temperature, 0d);
+        assertEquals(16.3, thr.humidity, 0d);
     }
 
     @Test
     public void testSTHRConstructorCopy() {
-        SuperTempHumidReading sthrtest = new SuperTempHumidReading(40.4, 12.3);
-        SuperTempHumidReading copySTHRTest = new SuperTempHumidReading(sthrtest);
-        assertEquals(sthrtest.temperature, copySTHRTest.temperature, 0.0);
-        assertEquals(sthrtest.humidity, copySTHRTest.humidity, 0.0);
+        SuperTempHumidReading sthr = new SuperTempHumidReading(40.4, 12.3);
+        SuperTempHumidReading copySTHR = new SuperTempHumidReading(sthr);
+        assertEquals(sthr.temperature, copySTHR.temperature, 0.0);
+        assertEquals(sthr.humidity, copySTHR.humidity, 0.0);
     }
 
     @Test
     public void testSTHREqualsExact() {
-        SuperTempHumidReading sthrtest = new SuperTempHumidReading(40.4, 12.3);
-        SuperTempHumidReading copySTHRTest = new SuperTempHumidReading(sthrtest);
-        assertEquals(sthrtest, copySTHRTest);
+        SuperTempHumidReading sthr = new SuperTempHumidReading(40.4, 12.3);
+        SuperTempHumidReading copySTHR = new SuperTempHumidReading(sthr);
+        assertEquals(sthr, copySTHR);
     }
 
     @Test
     public void testSTHREqualsInExact() {
-        SuperTempHumidReading sthrtest = new SuperTempHumidReading(40.4, 12.3);
-        SuperTempHumidReading copySTHRTest = new SuperTempHumidReading(40.40001, 12.30001);
-        assertEquals(sthrtest, copySTHRTest);
+        SuperTempHumidReading sthr = new SuperTempHumidReading(40.4, 12.3);
+        SuperTempHumidReading copySTHR = new SuperTempHumidReading(40.40001, 12.30001);
+        assertEquals(sthr, copySTHR);
     }
 
     @Test
     public void testSTHREqualsFail() {
-        SuperTempHumidReading sthrtest = new SuperTempHumidReading(40.4, 12.3);
-        SuperTempHumidReading copySTHRTest = new SuperTempHumidReading(41, 1);
-        assertNotEquals(sthrtest, copySTHRTest);
+        SuperTempHumidReading sthr = new SuperTempHumidReading(40.4, 12.3);
+        SuperTempHumidReading copySTHR = new SuperTempHumidReading(41, 1);
+        assertNotEquals(sthr, copySTHR);
     }
 
     @Test
     public void testSTHREqualsInExactCopy() {
-        TempHumidReading sthrtest = new TempHumidReading(40.4, 12.3);
-        SuperTempHumidReading copySTHRTest = new SuperTempHumidReading(sthrtest);
-        sthrtest = new SuperTempHumidReading(40.40001, 12.30001);
-        assertEquals(copySTHRTest, sthrtest);
+        TempHumidReading sthr = new TempHumidReading(40.4, 12.3);
+        SuperTempHumidReading copySTHR = new SuperTempHumidReading(sthr);
+        sthr = new SuperTempHumidReading(40.40001, 12.30001);
+        assertEquals(copySTHR, sthr);
     }
 
     @Test
     public void testSTHREqualsFailCopy() {
-        TempHumidReading sthrtest = new TempHumidReading(40.4, 12.3);
-        SuperTempHumidReading copySTHRTest = new SuperTempHumidReading(sthrtest);
-        sthrtest = new SuperTempHumidReading(41, 1);
-        assertNotEquals(sthrtest, copySTHRTest);
+        TempHumidReading sthr = new TempHumidReading(40.4, 12.3);
+        SuperTempHumidReading copySTHR = new SuperTempHumidReading(sthr);
+        sthr = new SuperTempHumidReading(41, 1);
+        assertNotEquals(sthr, copySTHR);
     }
 
     @Test
     public void testSTHREqualsNonTHR() {
-        SuperTempHumidReading sthrtest = new SuperTempHumidReading(40.4, 12.3);
-        String work = "{40.4F;12.3%}";
-        assertNotEquals(sthrtest, work);
+        SuperTempHumidReading sthr = new SuperTempHumidReading(40.4, 12.3);
+        assertNotEquals("{40.4F;12.3%}", sthr);
     }
 
     @Test
     public void testSTHRtoStringNotError() {
-        SuperTempHumidReading sthrtest = new SuperTempHumidReading(40.4, 12.3);
-        assertEquals("{40.4F;12.3%}", sthrtest.toString());
-        sthrtest = new SuperTempHumidReading(40.4254, 12.34);
-        assertEquals("{40.4F;12.3%}", sthrtest.toString());
+        SuperTempHumidReading sthr = new SuperTempHumidReading(40.4, 12.3);
+        assertEquals("{40.4F;12.3%}", sthr.toString());
+        sthr = new SuperTempHumidReading(40.4254, 12.34);
+        assertEquals("{40.4F;12.3%}", sthr.toString());
     }
 
     @Test
     public void testSTHRtoStringBothError() {
-        SuperTempHumidReading sthrtest = new SuperTempHumidReading();
-        assertEquals("{Err;Err}", sthrtest.toString());
+        SuperTempHumidReading sthr = new SuperTempHumidReading();
+        assertEquals("{Err;Err}", sthr.toString());
     }
 
     @Test
     public void testSTHRtoStringHumidError() {
-        SuperTempHumidReading sthrtest = new SuperTempHumidReading(50.0, -999.0);
-        assertEquals("{50.0F;Err}", sthrtest.toString());
+        SuperTempHumidReading sthr = new SuperTempHumidReading(50.0, -999.0);
+        assertEquals("{50.0F;Err}", sthr.toString());
     }
 
     @Test
     public void testGHNMiddleReadingNoDateNotEmpty() {
-        GreenHouseNursery testghn = new GreenHouseNursery();
-        testghn.pollSensorData(sensorData);
-        SuperTempHumidReading ref = new SuperTempHumidReading(34.5, 30.0);
-        assertEquals(ref, testghn.middleReading());
+        GreenHouseNursery ghn = new GreenHouseNursery();
+        ghn.pollSensorData(sensorData);
+        SuperTempHumidReading sthr = new SuperTempHumidReading(34.5, 30.0);
+        assertEquals(sthr, ghn.middleReading());
     }
 
     @Test
     public void testGHNMiddleReadingNoDateEmpty() {
-        GreenHouseNursery testghn = new GreenHouseNursery();
-        SuperTempHumidReading ref = new SuperTempHumidReading();
-        assertEquals(ref, testghn.middleReading());
+        GreenHouseNursery ghn = new GreenHouseNursery();
+        SuperTempHumidReading sthr = new SuperTempHumidReading();
+        assertEquals(sthr, ghn.middleReading());
     }
 
     @Test
     public void testGHNMiddleReadingDateNotEmpty() {
-        GreenHouseNursery testghn = new GreenHouseNursery();
-        testghn.pollSensorData(sensorData);
-        SuperTempHumidReading ref = new SuperTempHumidReading(34.5, 30.0);
-        assertEquals(ref, testghn.middleReading(20231130.0));
+        GreenHouseNursery ghn = new GreenHouseNursery();
+        ghn.pollSensorData(sensorData);
+        SuperTempHumidReading sthr = new SuperTempHumidReading(34.5, 30.0);
+        assertEquals(sthr, ghn.middleReading(20231130.0));
     }
 
     @Test
     public void testGHPMiddleReadingNoDateNotEmpty() {
-        GreenHouseProduce testghp = new GreenHouseProduce();
-        testghp.pollSensorData(sensorData);
-        SuperTempHumidReading ref = new SuperTempHumidReading(34.5, 30.0);
-        assertEquals(ref, testghp.middleReading());
+        GreenHouseProduce ghp = new GreenHouseProduce();
+        ghp.pollSensorData(sensorData);
+        SuperTempHumidReading sthr = new SuperTempHumidReading(34.5, 30.0);
+        assertEquals(sthr, ghp.middleReading());
     }
 
     @Test
     public void testGHPMiddleReadingNoDateEmpty() {
-        GreenHouseProduce testghp = new GreenHouseProduce();
-        SuperTempHumidReading ref = new SuperTempHumidReading();
-        assertEquals(ref, testghp.middleReading());
+        GreenHouseProduce ghp = new GreenHouseProduce();
+        SuperTempHumidReading sthr = new SuperTempHumidReading();
+        assertEquals(sthr, ghp.middleReading());
     }
 
     @Test
     public void testGHPMiddleReadingDateNotEmpty() {
-        GreenHouseProduce testghp = new GreenHouseProduce();
-        testghp.pollSensorData(sensorData);
-        SuperTempHumidReading ref = new SuperTempHumidReading(34.5, 30.0);
-        assertEquals(ref, testghp.middleReading(20231130.0));
+        GreenHouseProduce ghp = new GreenHouseProduce();
+        ghp.pollSensorData(sensorData);
+        SuperTempHumidReading sthr = new SuperTempHumidReading(34.5, 30.0);
+        assertEquals(sthr, ghp.middleReading(20231130.0));
     }
 
     @Test
     public void testGHPMiddleReadingDateEmpty() {
-        GreenHouseProduce testghp = new GreenHouseProduce();
-        SuperTempHumidReading ref = new SuperTempHumidReading();
-        assertEquals(ref, testghp.middleReading(20231130.0));
+        GreenHouseProduce ghp = new GreenHouseProduce();
+        SuperTempHumidReading sthr = new SuperTempHumidReading();
+        assertEquals(sthr, ghp.middleReading(20231130.0));
     }
 
     @Test
