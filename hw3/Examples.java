@@ -20,6 +20,11 @@ public class Examples {
     }
 
     @Test
+    public void testSTHREqualsNew() {
+        assertEquals(new SuperTempHumidReading(), new SuperTempHumidReading());
+    }
+
+    @Test
     public void testSTHRConstructorNoArg() {
         SuperTempHumidReading sthr = new SuperTempHumidReading();
         assertEquals(-999.0, sthr.temperature, 0d);
@@ -162,11 +167,6 @@ public class Examples {
         GreenHouseProduce ghp = new GreenHouseProduce();
         SuperTempHumidReading sthr = new SuperTempHumidReading();
         assertEquals(sthr, ghp.middleReading(20231130.0));
-    }
-
-    @Test
-    public void testSuperTempHumidReadingEqualsNew() {
-        assertEquals(new SuperTempHumidReading(), new SuperTempHumidReading());
     }
 
     @Test
