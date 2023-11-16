@@ -3,7 +3,6 @@
  * subclasses.
  */
 public abstract class AbsGreenHouse {
-
     // GIVEN CODE
     /**
      * Assume a sensor value is a date if it is greater jan 01, 1970
