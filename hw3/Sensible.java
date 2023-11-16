@@ -1,7 +1,6 @@
 import java.util.List;
 
 public interface Sensible {
-
     /**
      * Reads an ordered sequence of data from the weather sensors to store in the
      * greenhouse

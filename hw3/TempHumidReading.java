@@ -2,7 +2,6 @@
  * A simple DTO for temperature and humidity sensor data
  */
 public class TempHumidReading {
-
     /**
      * Temperature in Fahrenheit
      */

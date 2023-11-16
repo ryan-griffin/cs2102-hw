@@ -1,5 +1,4 @@
 public class SuperTempHumidReading extends TempHumidReading {
-
     public SuperTempHumidReading(double temp, double humid) {
         super(temp, humid);
     }
@@ -47,5 +46,4 @@ public class SuperTempHumidReading extends TempHumidReading {
 
         return tempString + humString;
     }
-
 }
