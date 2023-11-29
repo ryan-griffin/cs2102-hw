@@ -1,4 +1,6 @@
 import java.util.GregorianCalendar;
+import java.util.HashMap;
+import java.util.List;
 
 /**
  * An abstract superclass to provide template methods for performance specific
@@ -6,6 +8,12 @@ import java.util.GregorianCalendar;
  */
 public abstract class AbsGreenHouse implements QualityControlable {
     public GregorianCalendar calendar;
+    public HashMap<Double, List<Double>> temperatures = new HashMap<>();
+    public HashMap<Double, List<Double>> humidities = new HashMap<>();
+
+    public AbsGreenHouse() {
+        calendar = new GregorianCalendar();
+    }
 
     public AbsGreenHouse(GregorianCalendar calendar) {
         this.calendar = calendar;
@@ -18,7 +26,26 @@ public abstract class AbsGreenHouse implements QualityControlable {
      * @return a percent value between 0.0 and 100.0 inclusive
      */
     public double percentError() {
-        return 0.0;
+        double total = 0.0;
+        double error = 0.0;
+        for (Double date : temperatures.keySet()) {
+            for (Double temp : temperatures.get(date)) {
+                if (temp == -999.0) {
+                    error++;
+                }
+                total++;
+            }
+        }
+        for (Double date : humidities.keySet()) {
+            for (Double humidity : humidities.get(date)) {
+                if (humidity == -999.0) {
+                    error++;
+                }
+                total++;
+            }
+        }
+
+        return (total != 0.0) ? (error / total) * 100.0 : total;
     }
 
     // GIVEN CODE
