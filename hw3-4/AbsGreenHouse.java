@@ -7,16 +7,16 @@ import java.util.List;
  * subclasses.
  */
 public abstract class AbsGreenHouse implements QualityControlable {
-    public GregorianCalendar calendar;
-    public HashMap<Double, List<Double>> temperatures = new HashMap<>();
-    public HashMap<Double, List<Double>> humidities = new HashMap<>();
+    protected GregorianCalendar calendar;
+    protected HashMap<Double, List<Double>> temperatures = new HashMap<>();
+    protected HashMap<Double, List<Double>> humidities = new HashMap<>();
 
     public AbsGreenHouse() {
         calendar = new GregorianCalendar();
     }
 
     public AbsGreenHouse(GregorianCalendar calendar) {
-        this.calendar = calendar;
+        this.calendar = (GregorianCalendar) calendar.clone();
     }
 
     /**
