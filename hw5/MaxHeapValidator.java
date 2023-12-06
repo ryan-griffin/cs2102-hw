@@ -1,20 +1,4 @@
 public class MaxHeapValidator implements BTValidator {
-
-	/**
-	 * Checks if the tree contains a specific integer.
-	 *
-	 * @param tree the binary tree to search
-	 * @param i    the integer to find in the tree
-	 * @return true if the tree contains the integer, false otherwise
-	 */
-	private boolean contains(IBinTree tree, int i) {
-		if (tree.isEmpty()) {
-			return false;
-		}
-
-		return tree.getRoot() == i || contains(tree.getLeft(), i) || contains(tree.getRight(), i);
-	}
-
 	/**
 	 * Checks if the tree satisfies the max heap property.
 	 *
@@ -38,6 +22,21 @@ public class MaxHeapValidator implements BTValidator {
 	}
 
 	/**
+	 * Checks if the tree contains a specific integer.
+	 *
+	 * @param tree the binary tree to search
+	 * @param i    the integer to find in the tree
+	 * @return true if the tree contains the integer, false otherwise
+	 */
+	private boolean contains(IBinTree tree, int i) {
+		if (tree.isEmpty()) {
+			return false;
+		}
+
+		return tree.getRoot() == i || contains(tree.getLeft(), i) || contains(tree.getRight(), i);
+	}
+
+	/**
 	 * Validates adding an element to the tree while maintaining max heap property.
 	 *
 	 * @param oldTree the original tree assumed to satisfy max heap invariants
@@ -47,7 +46,7 @@ public class MaxHeapValidator implements BTValidator {
 	 *         element, false otherwise
 	 */
 	public boolean validAdd(IBinTree oldTree, int i, IBinTree newTree) {
-		return !contains(oldTree, i) && contains(newTree, i) && isMaxHeap(newTree);
+		return isMaxHeap(oldTree) && isMaxHeap(newTree) && !contains(oldTree, i) && contains(newTree, i);
 	}
 
 	/**
@@ -61,6 +60,6 @@ public class MaxHeapValidator implements BTValidator {
 	 *         element, false otherwise
 	 */
 	public boolean validRemove(IBinTree oldTree, int i, IBinTree newTree) {
-		return contains(oldTree, i) && !contains(newTree, i) && isMaxHeap(newTree);
+		return isMaxHeap(oldTree) && isMaxHeap(newTree) && contains(oldTree, i) && !contains(newTree, i);
 	}
 }
